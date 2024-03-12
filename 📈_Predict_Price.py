@@ -24,7 +24,7 @@ total_rooms = st.number_input('Total Rooms', min_value=2, max_value=39320)
 total_bedrooms = st.number_input('Total Bedrooms', min_value=1, max_value=6445)
 population = st.number_input('Population', min_value=3, max_value=35682)
 households = st.number_input('Households', min_value=1, max_value=6082)
-median_income = st.number_input('Median Income', min_value=0.5, max_value=15.0)
+median_income = st.number_input('Median Income (in thousand USD)', min_value=0.5, max_value=15.0)
 ocen_proximity = st.selectbox('Ocean Proximity', ['<1H OCEAN', 'INLAND', 'ISLAND', 'NEAR BAY', 'NEAR OCEAN'])
 if ocen_proximity == '<1H OCEAN':
     ocen_proximity = 0
