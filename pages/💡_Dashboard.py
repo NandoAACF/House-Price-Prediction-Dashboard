@@ -15,7 +15,7 @@ df = load_data()
 
 st.title('🏠 California Housing Dashboard')
 
-st.sidebar.title('Filter')
+st.sidebar.title('Filter 📌')
 
 min_price = st.sidebar.slider('Min Price', int(df['median_house_value'].min()), int(df['median_house_value'].max()), int(df['median_house_value'].min()))
 
@@ -23,15 +23,15 @@ max_price = st.sidebar.slider('Max Price', int(df['median_house_value'].min()), 
 
 filtered_df = df[(df['median_house_value'] >= min_price) & (df['median_house_value'] <= max_price)]
 
-# Filter ocean proximity
-ocean_proximity = st.sidebar.multiselect('Ocean Proximity', filtered_df['ocean_proximity'].unique())
+ocean_proximity = st.sidebar.selectbox('Ocean Proximity', list(filtered_df['ocean_proximity'].unique()), index=None)
+ocean_proximity = [ocean_proximity] if ocean_proximity else None
 
 if ocean_proximity:
     filtered_df = filtered_df[filtered_df['ocean_proximity'].isin(ocean_proximity)]
 
 col1, col2, col3, col4 = st.columns(4)
 
-col1.metric('Total Houses', value=filtered_df.shape[0])
+col1.metric('Total Blocks', value=filtered_df.shape[0])
 col2.metric('Average House Price', value=int(filtered_df['median_house_value'].mean()))
 col3.metric('Average Income', value=(int(filtered_df['median_income'].mean())*10000))
 col4.metric('Average House Age', value=int(filtered_df['housing_median_age'].mean()))
@@ -82,13 +82,25 @@ median_values_by_age = filtered_df.groupby('age_category')['median_house_value']
 
 plt.figure(figsize=(10, 5))
 
-palette = sns.color_palette('magma_r', len(median_values_by_age))
+palette = sns.color_palette('magma_r')
 
-median_values_by_age.plot(kind='bar', color=palette)
+sns.barplot(x=median_values_by_age.index, y=median_values_by_age.values, palette="magma_r")
 
 plt.title('Median House Price by Age Category')
 plt.xlabel('Age Category')
-plt.ylabel('Median House Value')
+plt.ylabel('Median House Price')
 plt.xticks(rotation=0)
+
+st.pyplot(plt)
+
+st.subheader('🛌 Total Bedrooms vs Population')
+
+plt.figure(figsize=(10, 5))
+scatter = plt.scatter(x='total_bedrooms', y='population', data=filtered_df, c=filtered_df['median_house_value'], cmap='magma_r')
+
+plt.title('Total Bedrooms vs. Population')
+plt.xlabel('Total Bedrooms')
+plt.ylabel('Population')
+plt.colorbar(scatter, label='Median House Value')
 
 st.pyplot(plt)
