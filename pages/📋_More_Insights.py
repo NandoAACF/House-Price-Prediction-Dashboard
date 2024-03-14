@@ -5,6 +5,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
 
+st.set_page_config(
+    page_title="More Insights",
+    page_icon="📋"
+)
+
 @st.cache_data
 def load_data():
     df = pd.read_csv('housing.csv')
