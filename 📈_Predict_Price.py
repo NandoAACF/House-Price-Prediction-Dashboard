@@ -18,7 +18,7 @@ model = load_model()
 st.title('📈 Predict House Price')
 
 with st.form("user_input"):
-    st.info('📢 Data will be generated randomly if not filled. Refresh the page to generate new data.')
+    st.info('📢 Input data will be generated randomly if not filled. Refresh the page to generate new random input data.')
 
     rand_long = np.random.uniform(-124.35, -114.31)
     longitude = st.number_input('Longitude', min_value=-130.01, max_value=-110.01, value=rand_long)
