@@ -3,5 +3,5 @@ pandas
 matplotlib
 seaborn
 numpy
-plotly
+plotly==5.19.0
 catboost
