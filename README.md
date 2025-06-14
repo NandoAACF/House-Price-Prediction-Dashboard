@@ -3,7 +3,7 @@
 
 **📊 Streamlit Dashboard: https://house-price-prediction-dashboard.streamlit.app/Dashboard**
 
-**📈 Power BI Dashboard: https://app.powerbi.com/view?r=eyJrIjoiMmZiOTY2ODMtYjUzNC00ZTM4LWE5MWUtNzRiMGFlOGEzMTg5IiwidCI6ImFmMmMwNzM0LWNiNDItNDY0Zi1iNmJmLTJhMjQxYjZhZGE1NiIsImMiOjEwfQ%3D%3D**
+**📈 Power BI Dashboard: https://app.powerbi.com/view?r=eyJrIjoiMzYwY2Q0OTktMzIyOS00Yjc1LWJkOGEtMTUwZDQyNTE4OGYxIiwidCI6ImM2OWI1MmVkLTc1ZGMtNDM3ZS1iMjkzLTNhOGJmNDZjM2IwNCIsImMiOjEwfQ%3D%3D**
 
 **🔍 Goals:** 
 - Predict the price of a house based on the features
